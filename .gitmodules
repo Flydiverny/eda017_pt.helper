@@ -1,0 +1,3 @@
+[submodule "inlmn5/src/se/markusmaga/lth/pt/helper"]
+	path = inlmn5/src/se/markusmaga/lth/pt/helper
+	url = https://git.nadilus.com/git/pt.helper.git
