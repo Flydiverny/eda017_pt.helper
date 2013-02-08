@@ -7,12 +7,14 @@ public abstract class MenuLauncher {
 
 	public MenuLauncher() {
 		mh = new MenuHandler();
+		
+		initialize();
 	}
 	
 	/**
-	 * Loops menu
+	 * Initalizes menu with exit entry and abstract setup.
 	 */
-	public void run() {
+	private void initialize() {
 		addMenuAction("Exit", new IFunction() {
 			public void execute() {
 				System.exit(0);
@@ -20,7 +22,12 @@ public abstract class MenuLauncher {
 		});
 
 		setupMenu();
-		
+	}
+	
+	/**
+	 * Loops menu
+	 */
+	public void run() {
 		while(true) {
 			mh.showMenuAndExecuteAction();
 		}
