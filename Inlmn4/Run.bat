@@ -1,0 +1,1 @@
+java se.markusmaga.lth.pt.maze.Launcher
