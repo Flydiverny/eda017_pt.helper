@@ -1,6 +1,6 @@
 package se.markusmaga.lth.pt.mandelbrot;
 
-import se.lth.cs.pt.dots.listeners.DotWindow;
+import se.lth.cs.pt.dots.DotWindow_;
 import se.lth.cs.pt.dots.Color;
 import java.awt.Point;
 
@@ -14,8 +14,12 @@ public class Mandelbrot {
 	private double currentScale;
 	private double targetRe, targetIm;
 	
-	public Mandelbrot()
-		this(MAX_ITERATIONS, START_RE, START_IM, SCALE);
+	public Mandelbrot() {
+		this(MAX_ITERATIONS, START_RE, START_IM, START_SCALE);
+	}
+	
+	public Mandelbrot(int max_iterations) {
+		this(max_iterations, START_RE, START_IM, START_SCALE);
 	}
 	
 	public Mandelbrot(int max_iterations, double re, double im, double scale) {
@@ -44,6 +48,14 @@ public class Mandelbrot {
 		return iterations;
 	}
 	
+	public void increaseScale() {
+		this.currentScale *= 1.1;
+	}
+	
+	public void decreaseScale() {
+		this.currentScale *= 0.9;
+	}
+	
 	public void setScale(double scale) {
 		this.currentScale = scale;
 	}
@@ -51,6 +63,10 @@ public class Mandelbrot {
 	public void setCenter(double re, double im) {
 		this.targetRe = re;
 		this.targetIm = im;
+	}
+	
+	public void setCenterByCoordinates(int x, int y, int width, int height) {
+		setCenter(xToRe(x, width), yToIm(y, height));
 	}
 	
 	private double xToRe(double x, double width) {
@@ -65,7 +81,9 @@ public class Mandelbrot {
 		return (currentScale/2-tar)*-1+currentScale/dim*c;
 	}
 	
-	public void display(DotWindow w) {
+	public void display(DotWindow_ w) {
+		w.setAutoUpdate(false);
+	
 		for(int x = 0; x < w.getWidth(); x++) {
 			for(int y = 0; y < w.getHeight(); y++) {
 				double im = yToIm(y, w.getHeight());
@@ -73,14 +91,10 @@ public class Mandelbrot {
 				
 				int iterations = calculate(re, im);
 				w.setDot(x, y, new Color(iterations, 0, 0));
-				
-				//System.out.println("(" + x + ", "+ y +") - (" + re + ", " + im + ") Iterations: " + iterations);
-				if(x == w.getWidth()-1 && y == w.getHeight()-1 || x==0 && y==0) {
-					System.out.println("Im: " + im + " Re: " + re + " y: " + y + " x: " + x + " Height: " + w.getHeight() + " Width: " + w.getWidth() + " Iterations: " + iterations);
-				}
 			}
 		}
 		
 		w.update();
+		w.setAutoUpdate(true);
 	}
 }

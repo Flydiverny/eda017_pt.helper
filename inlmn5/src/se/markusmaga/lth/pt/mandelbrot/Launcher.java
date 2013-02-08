@@ -20,13 +20,10 @@ public class Launcher extends OptionsLauncher {
 		int height = getIntValue("height");
 		int pixels = getIntValue("pixels");
 		int iterations = getIntValue("iterations");
-		DotWindow w = new DotWindow(width, height, 1);
-		w.useRectangularDots();
-		w.setAutoUpdate(false);
 		
-		Mandelbrot m = new Mandelbrot(iterations);
-		m.display(w);
+		new MandelbrotWindow(width, height, pixels, iterations).looper();
 	}
+	
 
 	/**
 	 * Sets up the menu alternatives and their callbacks.
@@ -45,6 +42,6 @@ public class Launcher extends OptionsLauncher {
 		addOption("width", "Ange fönster bredd", WINDOW_WIDTH);
 		addOption("height", "Ange fönster höjd", WINDOW_HEIGHT);
 		addOption("pixels", "Ange pixel storlek", PIXEL_SIZE);
-		addOption("iterations", "Ange pixel storlek", MAX_ITERATIONS);
+		addOption("iterations", "Ange antal iterationer", MAX_ITERATIONS);
 	}
 }
