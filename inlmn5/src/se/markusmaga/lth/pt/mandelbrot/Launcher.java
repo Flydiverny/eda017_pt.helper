@@ -9,7 +9,7 @@ public class Launcher extends OptionsLauncher {
 	private static final int WINDOW_WIDTH = 500;
 	private static final int WINDOW_HEIGHT = 500;
 	private static final int PIXEL_SIZE = 1;
-	private static final int MAX_ITERATIONS = 255;
+	private static final int MAX_ITERATIONS = 500;
 	
 	public static void main(String[] args) {
 		new Launcher().run();

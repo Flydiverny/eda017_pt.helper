@@ -40,6 +40,9 @@ public class MandelbrotWindow {
 		case 109:
 			m.increaseScale();
 			break;
+		case 32:
+			m.setScale(2.0);
+			break;
 		}
 	}
 	

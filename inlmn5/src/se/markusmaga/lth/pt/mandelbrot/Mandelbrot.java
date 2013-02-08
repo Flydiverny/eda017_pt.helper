@@ -90,11 +90,22 @@ public class Mandelbrot {
 				double re = xToRe(x, w.getWidth());
 				
 				int iterations = calculate(re, im);
-				w.setDot(x, y, new Color(iterations, 0, 0));
+				w.setDot(x, y, getColor(iterations));
 			}
 		}
 		
 		w.update();
 		w.setAutoUpdate(true);
+	}
+	
+	public Color getColor(int it) {
+		double c = 255.0/this.max_iterations*it;
+		
+		if(it < this.max_iterations/3)
+			return new Color(127, 127-(int) (c/2.0), 127);
+		else if(it < this.max_iterations/3*2)
+			return new Color(0, 0, (int) c);
+		else
+			return new Color(255-(int) c, 0, 0);
 	}
 }
