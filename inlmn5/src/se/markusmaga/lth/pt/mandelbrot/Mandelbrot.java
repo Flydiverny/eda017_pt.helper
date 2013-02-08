@@ -1,9 +1,11 @@
 package se.markusmaga.lth.pt.mandelbrot;
 
+import se.lth.cs.pt.dots.listeners.DotWindow;
+
 public class Mandelbrot {
 	public static final int MAX_ITERATIONS = 100;
 	
-	private max_iterations;
+	private int max_iterations;
 	
 	public Mandelbrot() {
 		this(MAX_ITERATIONS);
@@ -23,9 +25,9 @@ public class Mandelbrot {
 			// c = re + im
 			// z2 = z^2 + c
 			
-			int xtemp = a * a - b * b + re;
-			y = 2 * a * b + im;
-			x = xtemp;
+			double atemp = a * a - b * b + re;
+			b = 2 * a * b + im;
+			a = atemp;
 			iterations++;
 		}
 	
