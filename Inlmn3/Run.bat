@@ -1,1 +1,0 @@
-java se.markusmaga.lth.pt.register.RegisterHandler
