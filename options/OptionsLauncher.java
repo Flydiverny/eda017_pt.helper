@@ -16,14 +16,14 @@ public abstract class OptionsLauncher extends MenuLauncher {
 		if(oh.hasOptions()) {
 			super.addMenuAction("Ändra Inställningar", new IFunction() {
 				public void execute() {
-					changeOptions();
+					changeIntOptions();
 				}
 			});
 		}
 	}
 	
-	private void changeOptions() {
-		oh.changeOptions();
+	private void changeIntOptions() {
+		oh.changeIntOptions();
 	}
 	
 	protected <T> void addOption(String flag, String desc, T def) {

@@ -23,8 +23,8 @@ public class OptionsHandler implements IOptionsHandler {
 		return 0;
 	}
 	
-	public void changeOptions() {
-		for(Option o : options) {
+	public void changeIntOptions() {
+		for(Option<int> o : options) {
 			int value = Keyboard.nextInt(o.getDesc() +": ");
 			o.setValue(value);
 		}
