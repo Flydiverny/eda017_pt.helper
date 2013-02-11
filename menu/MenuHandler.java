@@ -28,7 +28,7 @@ public class MenuHandler implements IMenuHandler {
 	public void showMenuAndExecuteAction() {
 		int alternatives = menuActions.size(); 
 		
-		System.out.println("\nVad vill du göra:");
+		System.out.println("\nVad vill du gÃ¶ra:");
 		
 		for (int i = 1; i < alternatives; i++) {
 			System.out.println(i + ". " + menuActions.get(i));
@@ -40,7 +40,7 @@ public class MenuHandler implements IMenuHandler {
 		
 		System.out.print(userPrompt);
 		while (!Keyboard.hasNextInt()) {
-			System.out.print("Du måste skriva in ett heltal, försök igen: ");
+			System.out.print("Du mÃ¥ste skriva in ett heltal, fÃ¶rsÃ¶k igen: ");
 			Keyboard.nextLine();
 		}
 		
@@ -49,7 +49,7 @@ public class MenuHandler implements IMenuHandler {
 		while (!(val < alternatives && val >= 0)) {
 			System.out.print("Ogiltigt val, " + userPrompt);
 			while (!Keyboard.hasNextInt()) {
-				System.out.print("Du måste skriva in ett heltal, försök igen: ");
+				System.out.print("Du mÃ¥ste skriva in ett heltal, fÃ¶rsÃ¶k igen: ");
 				Keyboard.nextLine();
 			}
 			val = Keyboard.nextInt();

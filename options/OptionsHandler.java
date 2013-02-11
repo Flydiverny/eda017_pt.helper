@@ -24,7 +24,7 @@ public class OptionsHandler implements IOptionsHandler {
 	}
 	
 	public void changeIntOptions() {
-		for(Option<int> o : options) {
+		for(Option o : options) {
 			int value = Keyboard.nextInt(o.getDesc() +": ");
 			o.setValue(value);
 		}
