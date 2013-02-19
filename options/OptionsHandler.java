@@ -4,13 +4,13 @@ import java.util.*;
 import se.lth.cs.pt.io.Keyboard;
 
 public class OptionsHandler implements IOptionsHandler {
-	List<Option> options;
+	List<Option<Integer>> options;
 	
 	public OptionsHandler() {
-		options = new ArrayList<Option>();
+		options = new ArrayList<Option<Integer>>();
 	}
 	
-	public boolean add(Option o) {
+	public boolean add(Option<Integer> o) {
 		return options.add(o);
 	}
 	
@@ -24,7 +24,7 @@ public class OptionsHandler implements IOptionsHandler {
 	}
 	
 	public void changeIntOptions() {
-		for(Option o : options) {
+		for(Option<Integer> o : options) {
 			int value = Keyboard.nextInt(o.getDesc() +": ");
 			o.setValue(value);
 		}

@@ -26,8 +26,8 @@ public abstract class OptionsLauncher extends MenuLauncher {
 		oh.changeIntOptions();
 	}
 	
-	protected <T> void addOption(String flag, String desc, T def) {
-		Option<T> o = new Option<T>(flag, desc, def);
+	protected void addOption(String flag, String desc, int def) {
+		Option<Integer> o = new Option<Integer>(flag, desc, def);
 		oh.add(o);
 	}
 	
